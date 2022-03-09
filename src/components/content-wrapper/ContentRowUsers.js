@@ -11,10 +11,10 @@ const ContentRowAlbums = (props) => {
               <div
                 className={`text-xs font-weight-bold text-${props.color} text-uppercase mb-1`}
               >
-                Total de Albums
+                Total de Usuarios
               </div>
               <div className="h5 mb-0 font-weight-bold text-gray-800">
-                {props.totalAlbums}
+                {props.totalUsers}
               </div>
             </div>
             <div className="col-auto">
