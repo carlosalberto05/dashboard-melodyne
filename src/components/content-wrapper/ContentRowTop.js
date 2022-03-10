@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import imagenFondo from "../../assets/images/mandalorian.jpg";
-import ContentRowAlbums from "./ContentRowAlbums";
-import ContentRowUsers from "./ContentRowUsers";
-import ContentRowCategories from "./ContentRowCategories";
+import ContentRowTotal from "./ContentRowTotal";
 
 class ContentRowTop extends Component {
   constructor() {
@@ -30,15 +28,36 @@ class ContentRowTop extends Component {
     console.log(this.state);
     let totalAlbums = this.state.contentAlbums.length;
     let totalUsers = this.state.contentUsers.length;
-
     //Obtain all categories includes repeated
     let allCategories = this.state.contentAlbums.map((album) => album.category);
     //Filter categories repeated
     let filterCategories = allCategories.filter((category, i) => {
       return allCategories.indexOf(category) === i;
     });
-
     let totalCategories = filterCategories.length;
+
+    let albumsInDataBase = {
+      color: "primary",
+      title: "Total de álbumes",
+      total: totalAlbums,
+      icon: "fas fa-compact-disc",
+    };
+
+    let usersInDataBase = {
+      color: "success",
+      title: "Total de usuarios",
+      total: totalUsers,
+      icon: "fas fa-user",
+    };
+
+    let categoriesInDataBase = {
+      color: "warning",
+      title: "Total de categorías",
+      total: totalCategories,
+      icon: "fas fa-folder",
+    };
+
+    let cardProps = [albumsInDataBase, usersInDataBase, categoriesInDataBase];
 
     return (
       <>
@@ -48,12 +67,13 @@ class ContentRowTop extends Component {
             <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
           </div>
 
-          {/*<!-- Content Row Movies-->*/}
+          {/*<!-- Paneles whit total albums, users and categories-->*/}
           <div className="row">
-            {<ContentRowAlbums totalAlbums={totalAlbums} />}
-            {<ContentRowUsers totalUsers={totalUsers} />}
-            {<ContentRowCategories totalCategories={totalCategories} />}
+            {cardProps.map((card, index) => {
+              return <ContentRowTotal {...card} key={index} />;
+            })}
           </div>
+
           {/*<!-- End movies in Data Base -->*/}
 
           {/*<!-- Content Row Last Movie in Data Base -->*/}
