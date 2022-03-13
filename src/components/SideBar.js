@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../assets/images/mellowdyne.svg";
+import { Link } from "react-router-dom";
 
 function SideBar() {
   return (
@@ -15,7 +16,7 @@ function SideBar() {
           href="/"
         >
           <div className="sidebar-brand-icon">
-            <img className="w-100" src={image} alt="Digital House" />
+            <img className="w-100" src={image} alt="Mellowdyne" />
           </div>
         </a>
 
@@ -24,10 +25,10 @@ function SideBar() {
 
         {/*<!-- Nav Item - Dashboard -->*/}
         <li className="nav-item active">
-          <a className="nav-link" href="/">
+          <Link className="nav-link" to="/">
             <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard - M Albums</span>
-          </a>
+            <span>Dashboard - Albums</span>
+          </Link>
         </li>
 
         {/*<!-- Divider -->*/}
@@ -54,10 +55,10 @@ function SideBar() {
 
         {/*<!-- Nav Item - Tables -->*/}
         <li className="nav-item">
-          <a className="nav-link" href="/">
+          <Link className="nav-link" to="/albums-table">
             <i className="fas fa-fw fa-table"></i>
-            <span>Tables</span>
-          </a>
+            <span>Tabla de albumes</span>
+          </Link>
         </li>
 
         {/*<!-- Divider -->*/}
