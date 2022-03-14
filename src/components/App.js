@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+import AlbumByCategories from "./AlbumByCategories";
 import AlbumTable from "./content-wrapper/AlbumTable";
 import ContentWrapper from "./ContentWrapper";
 import SideBar from "./SideBar";
@@ -37,7 +38,14 @@ class App extends Component {
             <ContentWrapper albums={albums} users={users} />
           </Route>
           <Route path="/albums-table">
-            <AlbumTable albums={albums} />
+            <div id="content-wrapper" className="d-flex flex-column">
+              <div id="content">
+                <AlbumTable albums={albums} />
+              </div>
+            </div>
+          </Route>
+          <Route path="/abums-categories">
+            <AlbumByCategories albums={albums} />
           </Route>
         </Switch>
       </div>
