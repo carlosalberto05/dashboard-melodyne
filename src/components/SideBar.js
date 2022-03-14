@@ -39,10 +39,10 @@ function SideBar() {
 
         {/*<!-- Nav Item - Pages -->*/}
         <li className="nav-item">
-          <a className="nav-link collapsed" href="/">
+          <Link className="nav-link collapsed" to="/abums-categories">
             <i className="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-          </a>
+            <span>Cateogrías</span>
+          </Link>
         </li>
 
         {/*<!-- Nav Item - Charts -->*/}
