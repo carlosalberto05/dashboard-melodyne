@@ -4,6 +4,8 @@ import cargando from "../../../assets/images/cargando.gif";
 const LastAlbumInDb = ({ albums }) => {
   let lastAlbum = albums[albums.length - 1];
 
+  console.log(lastAlbum);
+
   return (
     <div className="col-lg-6 mb-4">
       <div className="card shadow mb-4">

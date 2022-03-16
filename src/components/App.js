@@ -4,6 +4,7 @@ import AlbumByCategories from "./AlbumByCategories";
 import AlbumTable from "./content-wrapper/AlbumTable";
 import ContentWrapper from "./ContentWrapper";
 import SideBar from "./SideBar";
+import AlbumDetail from "./AlbumDetail";
 
 class App extends Component {
   constructor() {
@@ -17,7 +18,7 @@ class App extends Component {
   componentDidMount() {
     fetch("api/products")
       .then((response) => response.json())
-      .then((albums) => this.setState({ contentAlbums: albums.data }))
+      .then((albums) => this.setState({ contentAlbums: albums.products }))
       .catch((err) => console.log(err));
 
     fetch("api/users")
@@ -47,6 +48,7 @@ class App extends Component {
           <Route path="/abums-categories">
             <AlbumByCategories albums={albums} />
           </Route>
+          <Route path="/detail/:id" component={AlbumDetail} />
         </Switch>
       </div>
     );
