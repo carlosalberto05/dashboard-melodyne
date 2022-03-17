@@ -1,5 +1,6 @@
 import React from "react";
 import cargando from "../../../assets/images/cargando.gif";
+import { Link } from "react-router-dom";
 
 const LastAlbumInDb = ({ albums }) => {
   let lastAlbum = albums[albums.length - 1];
@@ -26,9 +27,11 @@ const LastAlbumInDb = ({ albums }) => {
           <p>
             {lastAlbum ? lastAlbum.description : <span>Cargando datos...</span>}
           </p>
-          <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">
-            View album detail
-          </a>
+          {lastAlbum ? (
+            <Link className="btn btn-danger" to={`/detail/${lastAlbum.id}`}>
+              View album detail
+            </Link>
+          ) : null}
         </div>
       </div>
     </div>
