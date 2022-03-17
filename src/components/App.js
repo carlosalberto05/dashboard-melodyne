@@ -5,6 +5,7 @@ import AlbumTable from "./content-wrapper/AlbumTable";
 import ContentWrapper from "./ContentWrapper";
 import SideBar from "./SideBar";
 import AlbumDetail from "./AlbumDetail";
+import UserTable from "./content-wrapper/UserTable";
 
 class App extends Component {
   constructor() {
@@ -37,6 +38,13 @@ class App extends Component {
         <Switch>
           <Route exact path="/">
             <ContentWrapper albums={albums} users={users} />
+          </Route>
+          <Route path="/users-table">
+            <div id="content-wrapper" className="d-flex flex-column">
+              <div id="content">
+                <UserTable users={users} />
+              </div>
+            </div>
           </Route>
           <Route path="/albums-table">
             <div id="content-wrapper" className="d-flex flex-column">
