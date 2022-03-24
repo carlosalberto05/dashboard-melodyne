@@ -27,11 +27,11 @@ const LastAlbumInDb = ({ albums }) => {
           <p>
             {lastAlbum ? lastAlbum.description : <span>Cargando datos...</span>}
           </p>
-          {lastAlbum ? (
+          {lastAlbum && (
             <Link className="btn btn-danger" to={`/detail/${lastAlbum.id}`}>
               View album detail
             </Link>
-          ) : null}
+          )}
         </div>
       </div>
     </div>
